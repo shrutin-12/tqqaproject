@@ -33,35 +33,35 @@ class MainMenu {
 	clickChangePasswordMenuItem() {
 		cy.contains(this.LIST_ITEM_TITLE_CLASS, 'Change Password')
 			.parents(this.LIST_ITEM_TILE_CLASS)
-			.click();
+			.click({force: true});
 		return this;
 	}
 
 	clickManageUsersMenuItem() {
 		cy.contains(this.LIST_ITEM_TITLE_CLASS, 'Manage Users')
 			.parents(this.LIST_ITEM_TILE_CLASS)
-			.click();
+			.click({force: true});
 		return this;
 	}
 
 	clickCreateUserMenuItem() {
 		cy.contains(this.LIST_ITEM_TITLE_CLASS, 'Create User')
 			.parents(this.LIST_ITEM_TILE_CLASS)
-			.click();
+			.click({force: true});
 		return this;
 	}
 
 	clickLogoutMenuItem() {
 		cy.contains(this.LIST_ITEM_TITLE_CLASS, 'Logout')
 			.parents(this.LIST_ITEM_TILE_CLASS)
-			.click();
+			.click({force: true});
 		return this;
 	}
 
 	clickCollapseMenuItem() {
 		cy.contains(this.LIST_ITEM_TITLE_CLASS, 'Collapse')
 			.parents(this.LIST_ITEM_TILE_CLASS)
-			.click();
+			.click({force: true});
 		return this;
 	}
 }

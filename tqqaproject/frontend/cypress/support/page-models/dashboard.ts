@@ -1,28 +1,23 @@
 class Dashboard {
 
+	readonly BTN_CONTENT_CLASS = '.v-btn__content';
+
 	clickViewProfile() {
-		cy.contains('.v-btn__content', 'View Profile')
+		cy.contains(this.BTN_CONTENT_CLASS, 'View Profile')
 			.click();
 		return this;
 	}
 
-	clickOpenProfile() {
-		cy.contains('.v-btn__content', 'Edit Profile')
+	clickEditProfile() {
+		cy.contains(this.BTN_CONTENT_CLASS, 'Edit Profile')
 			.click();
 		return this;
 	}
 
 	clickChangePassword() {
-		cy.contains('.v-btn__content', 'Change Password')
+		cy.contains(this.BTN_CONTENT_CLASS, 'Change Password')
 			.click();
 		return this;
 	}
-
-	toggleMenuUsingMenuIcon() {
-		cy.get('.v-toolbar__side-icon')
-			.click();
-		return this;
-	}
-
 }
 export default new Dashboard();
