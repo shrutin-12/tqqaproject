@@ -1,11 +1,13 @@
 API automation Framework:
 
 To start, install pyTest using pip:
+
 pip3 install pytest
 
 Once installed, you can start running the test from command line using commands:
 
 To run a single suite: pytest -s -v apiTestSuites/tests/test_xx.py
+
 To run all the suites: pytest
 
 Main folders or files:
