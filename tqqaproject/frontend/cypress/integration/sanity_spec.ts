@@ -134,7 +134,7 @@ describe('Sanity Test Suite', () => {
         .should('not.be.visible');
     });
 
-    it('view profile is aavailable', () => {
+    it('view profile is available', () => {
       cy.contains('View Profile')
         .should('be.visible');
     });
