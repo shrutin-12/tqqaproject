@@ -1,5 +1,4 @@
 import loginPage from '../support/page-models/login';
-import mainMenu from '../support/page-models/main-menu';
 
 const ADMIN_EMAIL = 'admin@tqqaproject.com';
 const ADMIN_PASSWORD = 'changethis';
