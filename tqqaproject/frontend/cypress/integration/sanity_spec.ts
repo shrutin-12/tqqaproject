@@ -100,7 +100,7 @@ describe('Sanity Test Suite', () => {
         url: 'http://localhost/api/v1/users/*'
       }).as('edit-user');
 
-      manageUser.clickEditUser('test1@test.com')
+      manageUser.clickEditUser('test@test.com')
         .editUserFullName('Test Name');
 
       cy.wait('@edit-user').then((xhr) => {
