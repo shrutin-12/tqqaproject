@@ -51,7 +51,7 @@ describe('Sanity Test Suite', () => {
       editProfile.editProfile('Test TQ Admin', 'admin@tqqaproject.com');
 
       cy.wait('@edit-profile').then((xhr) => {
-        assert.equal(xhr.response.statusCode, 500);
+        assert.equal(xhr.response.statusCode, 200);
       });  
     });
 
@@ -104,7 +104,7 @@ describe('Sanity Test Suite', () => {
         .editUserFullName('Test Name');
 
       cy.wait('@edit-user').then((xhr) => {
-        assert.equal(xhr.response.statusCode, 500);
+        assert.equal(xhr.response.statusCode, 200);
       });
     });
 

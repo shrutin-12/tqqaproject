@@ -11,7 +11,8 @@ class ManageUser {
   readonly BTN_CONTENT_CLASS = '.v-btn__content';
 
   clickCreateUser(){
-    // Click create user button
+    cy.contains(this.BTN_CONTENT_CLASS,'Create User')
+      .click();
     return this;
   }
 

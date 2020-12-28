@@ -52,6 +52,10 @@ describe('Login Suite', () => {
       .should('be.visible');
   });
 
+  it('inactive users cannot login to the app', () => {
+    // try log in as an inactive user
+  });
+
   it('User can login successfully using correct credentials', () => {
     cy.intercept({
       method: 'POST',

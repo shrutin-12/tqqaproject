@@ -5,12 +5,14 @@ class EditProfile {
   readonly BTN_CONTENT_CLASS = '.v-btn__content';
 
   cancelEditProfile() {
-    // click on cancel button
+    cy.contains(this.BTN_CONTENT_CLASS,'Cancel')
+      .click();
     return this;
   }
 
   resetEditProfile() {
-    // click on reset button
+    cy.contains(this.BTN_CONTENT_CLASS,'Reset')
+      .click();
     return this;
   }
 

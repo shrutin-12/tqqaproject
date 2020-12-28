@@ -19,8 +19,10 @@ class CreateUser {
     password: string,
   }) {
     cy.get(this.FULL_NAME_CSS)
+      .clear()
       .type(fullName);
     cy.get(this.EMAIL_CSS)
+      .clear()
       .type(email);
     if(isSuperUser) {
       cy.get(this.IS_SUPERUSER_CSS)

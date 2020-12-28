@@ -19,13 +19,26 @@ describe('Manage User suite', () => {
   });
 
   describe('As a super user', () => {
-    it('Super user can create a new user', () => {
+    it('on create user, invalid email shows error', () => {
+      mainMenu.clickManageUsersMenuItem();
+      cy.contains('Manage Users');
+      manageUser.clickCreateUser();
+      cy.get(createUserPage.EMAIL_CSS)
+        .type('abc');
+      cy.contains('The email field must be a valid email')
+        .should('be.visible');
+    });
+
+    it('save button is disabled until all required fields are filled', () => {
+
+    });
+
+    it('can create a new user', () => {
       cy.intercept({
         method: 'POST',
         url: 'http://localhost/api/v1/users/'
       }).as('create-user');
 
-      mainMenu.clickCreateUserMenuItem();
       createUserPage.createUser({
         fullName: 'Test User',
         email: 'test' + Date.now() + '@test.com',
@@ -38,7 +51,7 @@ describe('Manage User suite', () => {
       });
     });
   
-    it('Super user can see list of existing user', () => {
+    it('can see list of existing user', () => {
       mainMenu.toggleMenuUsingMenuIcon()
         .clickManageUsersMenuItem();
       cy.wait(500);
@@ -46,7 +59,7 @@ describe('Manage User suite', () => {
         .should('be.visible');
     });
   
-    it('Super user can edit an existing user detail', () => {
+    it('can edit an existing user detail', () => {
       cy.intercept({
         method: 'PUT',
         url: 'http://localhost/api/v1/users/*'
@@ -57,12 +70,12 @@ describe('Manage User suite', () => {
         .should('be.visible');
       manageUser.editUserFullName('Edited Full Name');
       cy.wait('@update-user').then((xhr) => {
-        assert.equal(xhr.response.statusCode, 500);
+        assert.equal(xhr.response.statusCode, 200);
       });
-      cy.contains('User successfully created', {timeout:5000});
     });
   
-    it('Super user can inactivate an existing user', () => {
+    it('can inactivate an existing user', () => {
+      cy.contains('User successfully created', {timeout:5000});
       cy.intercept({
         method: 'GET',
         url: 'http://localhost/api/v1/users/'
@@ -74,20 +87,30 @@ describe('Manage User suite', () => {
       cy.wait('@get-users');
     });
   
-    it('Super user can activate an inactive user', () => {
-      
+    it('can activate an inactive user', () => {
+      // activate the above user
     });
   
-    it('Super user can set another user as super user', () => {
-      
+    it('can set another user as super user', () => {
+      // set a user as super user
     });
   
     it('user can navigate to next page if required', () => {
-  
+      // navigate to next page
     });
   
     it('user can set rows per page displayed', () => {
-  
+      // set to show all records on the page
+    });
+
+    it('manage user table shows check mark agianst the active users', () => {
+      // verify the check element exist for an active user
+      // verify the check element does not exist for an inactive user
+    });
+
+    it('manage user table shows check mark agianst the super users', () => {
+        // verify the check element exist for a super user
+        // verify the check element does not exist for a non-super user
     });
   });
 });
